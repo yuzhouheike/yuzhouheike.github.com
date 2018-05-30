@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuzhouheike.github.io/"/>
-  <updated>2018-03-08T08:30:27.414Z</updated>
+  <updated>2018-03-30T03:55:50.858Z</updated>
   <id>http://yuzhouheike.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>macOS逆向-01-Crackme</title>
+    <link href="http://yuzhouheike.github.io/2018/03/30/macOS%E9%80%86%E5%90%91-01-Crackme/"/>
+    <id>http://yuzhouheike.github.io/2018/03/30/macOS逆向-01-Crackme/</id>
+    <published>2018-03-30T03:55:50.000Z</published>
+    <updated>2018-03-30T03:55:50.858Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>tag</title>
