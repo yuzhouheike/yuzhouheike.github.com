@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuzhouheike.github.io/2018/05/30/逆向直播盒子MT·Box-iOS客户端/">
+    <link itemprop="mainEntityOfPage" href="http://yuzhouheike.github.io/2018/06/05/逆向某不知名的金融网路请求App签名字段生成逻辑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王磊磊">
@@ -311,7 +311,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/30/逆向直播盒子MT·Box-iOS客户端/" itemprop="url">逆向直播盒子MT·Box-iOS客户端</a></h1>
+                <a class="post-title-link" href="/2018/06/05/逆向某不知名的金融网路请求App签名字段生成逻辑/" itemprop="url">逆向某不知名的金融网路请求App签名字段生成逻辑</a></h1>
         
 
         <div class="post-meta">
@@ -323,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T23:55:26+08:00">
-                2018-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T21:36:23+08:00">
+                2018-06-05
               </time>
             
 
@@ -363,180 +363,17 @@
       
         
           
-            <p><a href="http://bbs.iosre.com/t/green-ios/11827" target="_blank" rel="noopener">首选推荐一下上次的一篇文章：逆向直播盒子Green-iOS客户端</a>·<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### ```写在前面的话```本次要使用的几个工具</span><br><span class="line"></span><br><span class="line">- IDA</span><br><span class="line">- AloneMonkey的MonkeyDev</span><br><span class="line">- Charles</span><br><span class="line"></span><br><span class="line">## 什么是直播盒子？</span><br><span class="line"></span><br><span class="line">- 单个直播的叫平台，比如斗鱼，熊猫，快手等等</span><br><span class="line">- 所有的平台放在一个App里面就被称为盒子</span><br><span class="line">- 现在上面上有很多直播平台（带颜色的）</span><br><span class="line">- 今天给大家带来的是MT·Box</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 什么是iOS逆向？</span><br><span class="line"></span><br><span class="line">- 不重要了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 为什么上周刚刚逆向了直播盒子Green！这周又逆向这MT·Box个盒子？</span><br><span class="line"></span><br><span class="line">- 事情的起因是：上周帮兄弟们的忙，兄弟们需要破解，上个周末分析了直播盒子Green（破解本地各种加密。分析到最后发现服务端做了身份校验，所以失败了了）。所以被好多兄弟疯狂嘲讽！为了不让兄弟们失望而归！所以这个周末的第一天又进行一次</span><br><span class="line"></span><br><span class="line">### 首先上个图（市面上的直播盒子现在也有很多，图只是其中一种，另一个兄弟发过来的链接）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 登录页```可以抓包修改数据包status值为1 也可以直接输入123456进入</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/5/19/16374351950377d2?w=1080&amp;h=1921&amp;f=jpeg&amp;s=103780" alt=""></p>
-<ul>
-<li>顺利进入首页</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/5/19/163743753be66ca1?w=1080&amp;h=1921&amp;f=jpeg&amp;s=207445" alt=""></p>
-<ul>
-<li>随便点击一个进去看看（点到你想看的位置）</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/5/19/163743c5edc2b241?w=1080&amp;h=1921&amp;f=jpeg&amp;s=86769" alt=""></p>
-<ul>
-<li><p>提示开通VIP <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- 抓包改包</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![](https://user-gold-cdn.xitu.io/2018/5/19/163743f848fb2b31?w=1060&amp;h=520&amp;f=jpeg&amp;s=40876)</span><br><span class="line"></span><br><span class="line">- 没有vip字段。没有status状态码。</span><br><span class="line">    - 但是你有没有发现有几个字段返回的空```比如lifetime</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>接下来改包</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2018/5/19/1637441e1a53e319?w=1060&amp;h=520&amp;f=jpeg&amp;s=40876" alt=""></p>
-<ul>
-<li>成功看到了直播！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 接下来就是hook源代码，直接把lifetime写出```666666</span><br></pre></td></tr></table></figure></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">%hook LoginModel</span><br><span class="line"></span><br><span class="line">- (void)setLifetime:(id)arg1 &#123;</span><br><span class="line">	%log;</span><br><span class="line">	NSLog(@&quot;%@&quot;, arg1);</span><br><span class="line">	%orig;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)setStatus:(id)arg1 &#123;</span><br><span class="line">	%log;</span><br><span class="line">	NSLog(@&quot;%@&quot;, arg1);</span><br><span class="line">	%orig;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (NSString *)lifetime&#123;</span><br><span class="line">	%log;</span><br><span class="line"> 	return @&quot;666666&quot;;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">-(NSString *)status&#123;</span><br><span class="line">%log;</span><br><span class="line">	return @&quot;1&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">%end</span><br></pre></td></tr></table></figure>
-<h3 id="上一篇文章结尾我说了这句话：其实正常其他盒子到这一步，就已经可以拿到直播url了，但是这家的盒子做的比较严谨！url居然返回空！散了吧。到此为止！这个盒子我搞不了。今天写这一篇主要就是为了证明我没有骗你们"><a href="#上一篇文章结尾我说了这句话：其实正常其他盒子到这一步，就已经可以拿到直播url了，但是这家的盒子做的比较严谨！url居然返回空！散了吧。到此为止！这个盒子我搞不了。今天写这一篇主要就是为了证明我没有骗你们" class="headerlink" title="上一篇文章结尾我说了这句话：其实正常其他盒子到这一步，就已经可以拿到直播url了，但是这家的盒子做的比较严谨！url居然返回空！散了吧。到此为止！这个盒子我搞不了。今天写这一篇主要就是为了证明我没有骗你们"></a>上一篇文章结尾我说了这句话：<code>其实正常其他盒子到这一步，就已经可以拿到直播url了，但是这家的盒子做的比较严谨！url居然返回空！散了吧。到此为止！这个盒子我搞不了。</code>今天写这一篇主要就是为了证明我没有骗你们</h3><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><ul>
-<li>感谢你看我的文章</li>
-<li>附上破解后的IPA<a href="http://yuzhouheike.0a6j.cn/yuzhouheikewll邀请码123456.ipa" target="_blank" rel="noopener">http://yuzhouheike.0a6j.cn/yuzhouheikewll邀请码123456.ipa</a></li>
-</ul>
-<h2 id="最后的最后！我想告诉大家一个小秘密。"><a href="#最后的最后！我想告诉大家一个小秘密。" class="headerlink" title="最后的最后！我想告诉大家一个小秘密。"></a>最后的最后！我想告诉大家一个小秘密。</h2><h4 id="那就是经过我不懈的努力。在盘古科技曝出iOS安全漏洞的第二天复现了盘古科技（搞越狱那个）曝出的iOS安全漏洞ZipperDown的漏洞视频（黑掉微博iOS客户端）https-zipperdown-org。但是作为一个有操守的iOS逆向爱好者，在微博没有修补漏洞之前。现在不能跟大家分享复现这个漏洞视频的过程（异常的艰辛。所以最终一定会和大家分享复现这个漏洞并执行微博任意代码的这个过程。盘古选择微博。是因为即使有这个漏洞，想执行微博任意代码还是不太容易！为了搞定这个。我甚至有一天晚上工作到3点！希望快速成长起来！）"><a href="#那就是经过我不懈的努力。在盘古科技曝出iOS安全漏洞的第二天复现了盘古科技（搞越狱那个）曝出的iOS安全漏洞ZipperDown的漏洞视频（黑掉微博iOS客户端）https-zipperdown-org。但是作为一个有操守的iOS逆向爱好者，在微博没有修补漏洞之前。现在不能跟大家分享复现这个漏洞视频的过程（异常的艰辛。所以最终一定会和大家分享复现这个漏洞并执行微博任意代码的这个过程。盘古选择微博。是因为即使有这个漏洞，想执行微博任意代码还是不太容易！为了搞定这个。我甚至有一天晚上工作到3点！希望快速成长起来！）" class="headerlink" title="那就是经过我不懈的努力。在盘古科技曝出iOS安全漏洞的第二天复现了盘古科技（搞越狱那个）曝出的iOS安全漏洞ZipperDown的漏洞视频（黑掉微博iOS客户端）https://zipperdown.org。但是作为一个有操守的iOS逆向爱好者，在微博没有修补漏洞之前。现在不能跟大家分享复现这个漏洞视频的过程（异常的艰辛。所以最终一定会和大家分享复现这个漏洞并执行微博任意代码的这个过程。盘古选择微博。是因为即使有这个漏洞，想执行微博任意代码还是不太容易！为了搞定这个。我甚至有一天晚上工作到3点！希望快速成长起来！）"></a>那就是经过我不懈的努力。在盘古科技曝出iOS安全漏洞的第二天复现了盘古科技（搞越狱那个）曝出的iOS安全漏洞ZipperDown的漏洞视频（黑掉微博iOS客户端）<a href="https://zipperdown.org" target="_blank" rel="noopener">https://zipperdown.org</a>。但是作为一个有操守的iOS逆向爱好者，在微博没有修补漏洞之前。现在不能跟大家分享复现这个漏洞视频的过程（异常的艰辛。所以最终一定会和大家分享复现这个漏洞并执行微博任意代码的这个过程。盘古选择微博。是因为即使有这个漏洞，想执行微博任意代码还是不太容易！为了搞定这个。我甚至有一天晚上工作到3点！希望快速成长起来！）</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuzhouheike.github.io/2018/05/30/逆向某某单车-iOS客户端/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王磊磊">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/30/逆向某某单车-iOS客户端/" itemprop="url">逆向某某单车-iOS客户端</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T23:52:55+08:00">
-                2018-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 事情起源</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- ```朋友圈看到一则消息.大概意思就是某某土豪,为了表白萌妹&quot;赵千萌&quot;.所以使当地的哈罗单车iOS客户端上面用户附近的车辆图标显示为他自己的图片.图片上面写着``` ```赵千萌 我爱你</span><br></pre></td></tr></table></figure></h3><ul>
-<li>源图<br><img src="https://user-gold-cdn.xitu.io/2018/5/23/1638c46ea5c8d3de" alt=""></li>
-</ul>
-<ul>
-<li><p>随手转发了下.随后评论区看到下面好多问题</p>
-<ul>
-<li>他是入侵了服务端吗?</li>
-<li>他是自己P的图吗?</li>
-<li>他是逆向了自己的单机App吗?</li>
-</ul>
-</li>
-</ul>
-<h2 id="这些评论引起了我的兴趣"><a href="#这些评论引起了我的兴趣" class="headerlink" title="这些评论引起了我的兴趣"></a>这些评论引起了我的兴趣</h2><ul>
-<li><p>我对评论的解答</p>
-<ul>
-<li>首先否决入侵服务端(因为违法..乌云的前辈们就是前车之鉴,虽然他们只是渗透)</li>
-<li>然后否决P图.表白这种大事通过P图!(<figure class="highlight plain"><figcaption><span>2.P图的每天有很多,但是不会大范围传播 3. 男生大多不会P图```)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">  - 通过排除法.显然他是逆向了自己的App</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">## 那我为什么逆向呢?</span><br><span class="line"></span><br><span class="line">- 既然他能逆向修改说明我也可能逆向修改(```虽然我暂时没有表白的需求,但是说不准以后可能会有.或者兄弟们会有,需要我的帮助呢```)</span><br><span class="line"></span><br><span class="line">## 下面演示通过iOS逆向修改某某单车的结果</span><br><span class="line"></span><br><span class="line">- 上个图</span><br><span class="line">![](https://user-gold-cdn.xitu.io/2018/5/23/1638c4fc138072f5?w=1080&amp;h=1921&amp;f=jpeg&amp;s=126444)</span><br><span class="line"></span><br><span class="line">- 由于大家说第一个图不好看.所以再上个图</span><br><span class="line">![](https://user-gold-cdn.xitu.io/2018/5/23/1638c4ec19d65462?w=1080&amp;h=1921&amp;f=jpeg&amp;s=131651)</span><br><span class="line"></span><br><span class="line">## 下面简单说下逆向过程</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 第一步 静态分析</span><br><span class="line"></span><br><span class="line">- Hooper 或者 IDA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 第二步 动态调试</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- LLDB 或者 cycript</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 第三步 打包重签</span><br><span class="line"></span><br><span class="line">- MonkeyDev 或者 IPAPatch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 为什么逆向过程这么简单?啥也没写</span><br><span class="line"></span><br><span class="line">- 因为这是个简单的正规的App</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 最后 展示下修改代码</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<p>%hook MAAnnotationView</p>
-<p>-(void)setImage:(id)arg1 {<br>%log;<br>// UIImage *image = [UIImage ima]</p>
-<p>UIImage *image = [UIImage imageNamed:@”yuzhouheikewll.png”];<br>arg1 = image;<br>NSLog(@”yuzhouheikewll::==%@”, image);<br>%orig;</p>
-<p>}</p>
-<p>%end<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 最后的最后澄清下故事中的男主角实现途径</span><br><span class="line">- ```经过某某单车内部可靠消息:人家是花钱从官方买的服务</span><br></pre></td></tr></table></figure></p>
-<h2 id="最后的最后的最后"><a href="#最后的最后的最后" class="headerlink" title="最后的最后的最后"></a>最后的最后的最后</h2><ul>
-<li>感谢您在百忙之中看我的文章</li>
-</ul>
-
+            <h1 id="逆向研究某不知名app的sign字段-签名"><a href="#逆向研究某不知名app的sign字段-签名" class="headerlink" title="逆向研究某不知名app的sign字段(签名)"></a>逆向研究某不知名app的sign字段(签名)</h1><h1 id="原始数据"><a href="#原始数据" class="headerlink" title="原始数据"></a>原始数据</h1><h2 id="原始数据调用的加密函数"><a href="#原始数据调用的加密函数" class="headerlink" title=" 原始数据调用的加密函数"></a><1> 原始数据调用的加密函数</1></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">channelId = &quot;App Store&quot;;</span><br><span class="line">di = 72FB1DA8B3A14353BF85796E939BAEB3;</span><br><span class="line">dn = &quot;iPhone 6s Plus&quot;;</span><br><span class="line">idfa = &quot;0792DBB4-C177-4F95-98FD-EA456D95FF57&quot;;</span><br><span class="line">ost = 10;</span><br><span class="line">osv = &quot;11.3.1&quot;;</span><br><span class="line">sh = 667;</span><br><span class="line">sid = 400;</span><br><span class="line">ss = 3;</span><br><span class="line">sw = 375;</span><br><span class="line">v = 201986;</span><br><span class="line">&#125; deviceToken:(null) debug:0]</span><br></pre></td></tr></table></figure>
+<h2 id="调用新的函数推出extra字段"><a href="#调用新的函数推出extra字段" class="headerlink" title=" 调用新的函数推出extra字段"></a><2> 调用新的函数推出extra字段</2></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;YooliAPISign: 0x1011a0e90&gt; genSI3:&#123;</span><br><span class="line">channelId = &quot;App Store&quot;;</span><br><span class="line">di = 72FB1DA8B3A14353BF85796E939BAEB3;</span><br><span class="line">dn = &quot;iPhone 6s Plus&quot;;</span><br><span class="line">idfa = &quot;0792DBB4-C177-4F95-98FD-EA456D95FF57&quot;;</span><br><span class="line">ost = 10;</span><br><span class="line">osv = &quot;11.3.1&quot;;</span><br><span class="line">sh = 667;</span><br><span class="line">sid = 400;</span><br><span class="line">ss = 3;</span><br><span class="line">sw = 375;</span><br><span class="line">v = 201986;</span><br><span class="line">&#125; extra:&#123;</span><br><span class="line">mt = 3; (固定3)</span><br><span class="line">nc = 1039169849;(随机数)</span><br><span class="line">tm = 1528204164;(时间戳)</span><br><span class="line">&#125; dt:(null) debug:0]</span><br></pre></td></tr></table></figure>
+<h2 id="md5"><a href="#md5" class="headerlink" title=" md5"></a><3> md5</3></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cec87ddf4ec83b01dd569ecedf5f14f3 (woshishabi  md5)</span><br></pre></td></tr></table></figure>
+<h2 id="md5-1"><a href="#md5-1" class="headerlink" title=" md5"></a><4> md5</4></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e205b26c14e25d6e5d8a914d7eb8f4c4 (nicaishishabi的md5)</span><br></pre></td></tr></table></figure>
+<h2 id="字典合并排序-最前面插入woshishabi的md5"><a href="#字典合并排序-最前面插入woshishabi的md5" class="headerlink" title=" 字典合并排序 + (最前面插入woshishabi的md5)"></a><5> 字典合并排序 + (最前面插入woshishabi的md5)</5></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cec87ddf4ec83b01dd569ecedf5f14f3channelIdApp Storedi72FB1DA8B3A14353BF85796E939BAEB3dniPhone 6s Plusidfa0792DBB4-C177-4F95-98FD-EA456D95FF57mt3nc1039169849ost10osv11.3.1sh667sid400ss3sw375tm1528204164v201986    (第二步骤的两个字典合并 .字典序排序.去除keyvalue组成字符串,在字符串前面插入woshishabi的md5)</span><br></pre></td></tr></table></figure>
+<h2 id="MD5"><a href="#MD5" class="headerlink" title=" MD5"></a><6> MD5</6></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f0657048921d41c9b23bca2fde1a01d8 MD5加密后</span><br></pre></td></tr></table></figure>
+<h2 id="拼接-md5字符串-nicaishishabi"><a href="#拼接-md5字符串-nicaishishabi" class="headerlink" title="  拼接 md5字符串(nicaishishabi)"></a><7>  拼接 md5字符串(nicaishishabi)</7></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f0657048921d41c9b23bca2fde1a01d8e205b26c14e25d6e5d8a914d7eb8f4c4  (在&lt;6&gt;的结果后面追加nicaishishabi的md5)</span><br></pre></td></tr></table></figure>
+<h2 id="MD5-1"><a href="#MD5-1" class="headerlink" title=" MD5"></a><8> MD5</8></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9eeef6912a644fc418bcb0be363ab846  &lt;对&lt;7&gt;MD5加密&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Sha1"><a href="#Sha1" class="headerlink" title=" Sha1"></a><9> Sha1</9></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f3725545e0b370ee6eee5220351250808cc858a8 (字段si的最终结果)&lt;对&lt;8&gt;sha1加密&gt;</span><br></pre></td></tr></table></figure>
+<p>￼</p>
+<h2 id="这只是App注册手机号码前的网络请求si字段"><a href="#这只是App注册手机号码前的网络请求si字段" class="headerlink" title="这只是App注册手机号码前的网络请求si字段"></a>这只是App注册手机号码前的网络请求si字段</h2>
           
         
       
@@ -953,7 +790,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
