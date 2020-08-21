@@ -2,7 +2,7 @@
     "applinks": {
         "apps": [],
         "details": [{
-            "appID": "D3RXQ7NQ64.ifeng.TestULK",//56Y6KQ*****为Team ID,com.XXX为BundleID
+            "appID": "D3RXQ7NQ64.ifeng.TestULK",
             "paths": ["*"]
         }]
     }
