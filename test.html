@@ -14,10 +14,25 @@
                 }
             </style>
             <script>
-                
-                 var err = function(){alert(1)}
-                var suc = function(){alert(2)}
-                navigator.geolocation.getCurrentPosition(err,suc)
+
+                function getLocation()
+                {
+                    if (navigator.geolocation)
+                    {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    }
+                    else
+                    {
+                        x.innerHTML="该浏览器不支持获取地理位置。";
+                    }
+                }
+
+                function showPosition(position)
+                {
+                    x.innerHTML="纬度: " + position.coords.latitude + 
+                    "<br>经度: " + position.coords.longitude;	
+                }
+                            
               
               
             </script>
