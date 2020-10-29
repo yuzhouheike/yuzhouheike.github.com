@@ -1,0 +1,14 @@
+ navigator.geolocation.getCurrentPosition = function (cb) {
+            setTimeout(() => {
+                cb({
+                    'coords': {
+                        accuracy: 21,
+                        altitude: null,
+                        altitudeAccuracy: null,
+                        heading: null,
+                        latitude: 0,
+                        longitude: 0,
+                        speed: null
+                    }
+                })
+            }, 1000)
