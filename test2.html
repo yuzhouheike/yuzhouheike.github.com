@@ -1,4 +1,15 @@
- navigator.geolocation.getCurrentPosition = function (cb) {
+
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>弹出地理位置</title> 
+</head>
+<body>
+<h1>ceshi</h1>
+<script>
+var x=document.getElementById("demo");
+  navigator.geolocation.getCurrentPosition = function (cb) {
             setTimeout(() => {
                 cb({
                     'coords': {
@@ -12,3 +23,24 @@
                     }
                 })
             }, 1000)
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else
+	{
+		x.innerHTML="该浏览器不支持获取地理位置。";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="纬度: " + position.coords.latitude + 
+	"<br>经度: " + position.coords.longitude;	
+}
+ getLocation()
+</script>
+</body>
+</html>
