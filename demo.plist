@@ -17,19 +17,19 @@
 					<key>kind</key>
 					<string>display-image</string>
 					<key>url</key>
-					<string>https://example.com/image.57x57.png</string>
+					<string>http://81.70.89.107/Black.png</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>full-size-image</string>
 					<key>url</key>
-					<string>https://example.com/image.512x512.png</string>
+					<string>http://81.70.89.107/Black.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.xxx.xxx</string>
+				<string>com.XXXXXXX.wll.ifengios04</string>
 				<key>bundle-version</key>
 				<string>1.0.0</string>
 				<key>kind</key>
